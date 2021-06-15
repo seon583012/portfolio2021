@@ -153,7 +153,7 @@
 										data-splitin="none" 
 										data-splitout="none" 
 										data-responsive_offset="on">
-										<a href="#skill-section" class="project-button hvr-bounce-to-right">more</a>
+										<a href="#" class="project-button hvr-bounce-to-right">more</a>
 									</div>
 								
 								</li>
@@ -552,6 +552,18 @@
 		<!-- Theme js -->
 		<script type="text/javascript" src="js/theme.js"></script>
 		<script type="text/javascript" src="js/map-script.js"></script>
+		
+		
+		<script>
+         $(function(){
+             
+             $(".banner .project-button").click(function(){
+                 
+                 $('html, body').animate({scrollTop : '850px'},1500);
+             });
+         });    
+            
+        </script>
 
 		</div> <!-- /.main-page-wrapper -->
 	</body>
