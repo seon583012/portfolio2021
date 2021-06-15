@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+
+/*** 
+
+====================================================================
+  Loading Transition
+====================================================================
+
+ ***/
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: #f8e9e6;
+  overflow: hidden;
+}
+#preloader_1{
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#preloader_1 span{
+  display:block;
+  bottom:0px;
+  width: 6px;
+  height: 5px;
+  background:#e15b47; 
+  position:absolute;
+  animation: preloader_1 1.5s  infinite ease-in-out;
+}
+ 
+#preloader_1 span:nth-child(2){
+left:11px;
+animation-delay: .2s;
+ 
+}
+#preloader_1 span:nth-child(3){
+left:22px;
+animation-delay: .4s;
+}
+#preloader_1 span:nth-child(4){
+left:33px;
+animation-delay: .6s;
+}
+#preloader_1 span:nth-child(5){
+left:44px;
+animation-delay: .8s;
+}
+@keyframes preloader_1 {
+    0% {height:5px;transform:translateY(0px);background:#e15b47;}
+    25% {height:30px;transform:translateY(15px);background:#e15b47;}
+    50% {height:5px;transform:translateY(0px);background:#e15b47;}
+    100% {height:5px;transform:translateY(0px);background:#e15b47;}
+}
+
+
+
+
+
+* { margin: 0; padding: 0; border: none; }
+ul { list-style: none; }
+html { font-size: 10px; }
+a { font-family: 'Nanum Gothic', sans-serif; text-decoration: none; color: #222; }
+body { font-family: 'Nanum Gothic', sans-serif; color: #222; font-size: 1.6rem; }
+h1, h2, h3, h4, h5, h6 { text-transform: uppercase; }
+.hidden { width: 1px; height: 1px; position: absolute; left: 0; top: 0; display: none; }
+#wrap { width: 100%; }
+.inner { width: 1180px; margin: 0 auto; }
+
+.title { padding-top: 40px; text-align: center; }
+.title h2 { font-size: 3.0rem; letter-spacing: 2px; color: #d60b29; margin-bottom: 10px; font-weight: 800; }
+.title h2:before { display: block; content: ""; width: 20px; height:4px; background:#d60b29; border-radius: 2px; margin: 30px auto; }
+
+#box1 { width: 100%; height: 900px; }
+#box1 .box1_contents { width: 70%; margin: 0 auto; }
+#box1 .box1_contents:after { display: block; content: ""; clear: both; }
+.box1_left { width: calc(40% - 50px); float: left; padding-top: 360px; text-align: right; margin-right: 50px; }
+.box1_right { width: calc(60% - 50px); float: right; padding-top: 370px; margin-left: 50px; }
+.box1_right h6 { font-size: 1.8rem; color: #d60b29; padding-bottom: 10px; text-transform: none; }
+.box1_right h2 { font-size: 2.8rem; }
+.box1_right .btn { height: 30px; line-height: 30px; margin: 30px 0; }
+.box1_right .btn a { font-size: 1.6rem; font-weight: 700; }
+.box1_right .btn a span { margin-left: 10px; }
+.box1_right .btn a span img { vertical-align: middle; transition: all 0.4s; }
+.box1_right .btn:hover a span img { transform: translateX(20px); }
+
+#box2 { width: 100%; height: 728px; background: url(../images/box2_bg.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; text-align: center; }
+#box2 .title h2 { padding: 30px 0 150px; }
+#box2 h3 { font-size: 2.5rem; font-weight: 800; font-style: italic; }
+#box2 p { width: 470px; margin: 60px auto 0; font-size: 1.8rem; line-height: 180%; }
+
+#box3 { width: 100%; height: 1220px; }
+.box3_top { width: 800px; margin:  100px auto 60px; }
+dl { margin: 60px 0; }
+dt { font-size: 2.2rem; font-weight: 700; float: left; text-align: center; width: 45%; padding-top: 6px;}
+dd { float: left; width: 55%; line-height: 150%; font-size: 1.8rem; }
+dl:after { display: block; content: ""; clear: both; }
+dt:after { display: block; content: ""; width: 35px; height: 12px; background: url(../images/underline.png); background-repeat: no-repeat; background-position: center; background-size: cover; margin: 8px auto 0; }
+
+.box3_bottom { text-align: center; width: 75%; margin: 0 auto; }
+.box3_bottom:after { display: block; content: ""; clear: both; }
+.box3_bottom h4 { font-size: 2.0rem; font-weight: 800; padding: 40px 0; letter-spacing: 2px; }
+.maincolor { width: 45%; float: left; }
+.maincolor:after { display: block; content: ""; clear: both; }
+.maincolor li { float: left; width: 50%; margin: 40px 0; }
+.maincolor li p { font-size: 1.4rem; margin-top: 8px; }
+.subcolor { width: 50%; float: right; margin-top: 70px; }
+.subcolor:after { display: block; content: ""; clear: both; }
+.subcolor li { float: left; width: calc(100% / 3); margin: 30px 0; }
+.subcolor li p { font-size: 1.4rem; margin-top: 8px; }
+
+
+#box4  { width: 100%; }
+.box4_mockup { width: 100%; height: 0; padding-top: calc(970 / 1920 * 100%); background: url(../images/mockup_main.jpg); background-size: cover; background-repeat: no-repeat; background-position: center right; }
+.box4_contents { width: 100%; height: 4592px; background: url(../images/screen_detail-01.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; }
+
+
+#box5 { width: 100%; }
+.box5_mockup { width: 100%; height: 0; padding-top: calc(970 / 1920 * 100%); background: url(../images/mockup_sub1.jpg);  background-size: cover; background-repeat: no-repeat; background-position: center right; }
+.box5_contents { width: 100%; height: 6711px; background: url(../images/screen_detail-02.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; }
+
+@media (max-width:1550px) {
+    
+    #box1 .box1_contents { width: 70%; }
+    
+    .box4_contents { width: 100%; height: 0; padding-top: calc(4592 / 1550 * 100%); background: url(../images/screen_detail1550-01.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; }
+    
+    .box5_contents { width: 100%; height: 0; padding-top: calc(6711 / 1550 * 100%); background: url(../images/screen_detail1550-02.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; }
+    
+}
+
+@media (max-width:1179px) {
+    
+    .inner { width: 98%; }
+
+
+}
+
+
+@media (max-width:990px) {
+    
+    .box1_left { float: revert; margin: 0 auto; width: 100%; text-align: center; padding: 50% 0 30px; }
+    .box1_right { float: revert; margin: 0 auto; padding: 0; text-align: center; width: 100%; }
+
+}
+
+@media (max-width:850px) {
+    
+    .box3_top { width: 85%;}
+    dt { width: 35%; }
+    dd { width: 65%; }
+}
+
+@media (max-width:768px) {
+    
+    .title h2 { font-size: 2.8rem; }
+    .title p { width: 400px; margin: 0 auto; line-height: 150%; font-size: 
+    1.4rem; }
+    
+    #box1 { width: 100%; height: 0; padding-top: calc(830 / 768 * 100%); position: relative; }
+    #box1 .inner { position: absolute; left: 0; right: 0; margin: 0 auto; top: 0; }
+    
+    .box1_left { padding: 50% 0 30px; }
+    .box1_left img { width: 220px; }
+    .box1_right h6 { font-size: 1.6rem; padding-bottom: 7px; }
+    .box1_right h2 { font-size: 2.4rem; }
+    
+    #box2 { height: 650px; }
+    #box2 .title h2 { padding: 30px 0 100px; }
+    #box2 h3 { font-size: 2.0rem; }
+    #box2 p { width: 400px; font-size: 1.6rem; }
+    #box3 { height: auto; }
+    .box3_top { width: 100%;}
+    dl { text-align: center; margin: 30px 0; }
+    dt { float: revert; width: 100%; padding: 0; margin-bottom: 10px; font-size:  2.0rem; }
+    dd { float: revert;  width: 100%; font-size:  1.6rem; }
+    
+
+    .box3_bottom { width: 100%; }
+    .box3_bottom h4 { padding-bottom: 0; }
+    .maincolor { float: revert; width: 420px; margin: 0 auto; }
+    .maincolor li { width: 25%; }
+    .maincolor li img { width: 75px; }
+    .maincolor li p { font-size: 1.2rem; }
+    .subcolor {float: revert; margin: 0 auto 60px; width: 300px; }
+    .subcolor li { margin: 15px 0; }
+    .subcolor li p { font-size: 1.2rem; }
+    
+    .box4_mockup { width: 100%; height: 0; padding-top: calc(590 / 768 * 100%); background: url(../images/mockup_main_m.jpg); background-size: cover; background-repeat: no-repeat; background-position: center right; }
+    
+    .box5_mockup { width: 100%; height: 0; padding-top: calc(590 / 768 * 100%); background: url(../images/mockup_sub1_m.jpg); background-size: cover; background-repeat: no-repeat; background-position: center right; }
+}
+
+@media (max-width:590px) {
+    #box1 { width: 100%; height: 0; padding-top: calc(740 / 590 * 100%); position: relative; }
+}

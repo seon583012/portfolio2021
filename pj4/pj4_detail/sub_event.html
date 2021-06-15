@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>얼루어 코리아 (Allure Korea)</title>
+    
+    <!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="56x56" href="img/fav-icon.png">
+    
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/flickerplate.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/jquery-v1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+    <script>
+$(document).ready(function(){
+    mobile_menu();
+});
+
+function mobile_menu(){
+    /* 변수 선언 */
+    var $menu = null;
+    var $left_gnb = null; // 영역 전체
+    var $depth1_wrap = null;
+    var $depth1 = null;
+    var $depth1_btn = null;
+    
+    /* 시작 함수 */
+    function start(){
+        init();
+        init_event();
+    }
+    /* 변수 초기화 함수 */
+    function init(){
+        $menu = $('.m_menu');
+        $left_gnb = $('.left_gnbWrap'); // 영역 전체
+        $depth1_wrap = $('.left_gnb>li');
+        $depth1 = $depth1_wrap.children('ul');
+        $depth1_btn = $depth1_wrap.children('a');
+    }
+    /* 이벤트 함수 */
+    function init_event(){
+        
+        /* 모바일 메뉴 버튼 클릭했을때 모바일 메뉴영역 나오게 하기 */
+        $menu.click(function(event){
+            event.preventDefault();
+            $left_gnb.addClass('on');
+        });
+        
+        /* x버튼 눌렀을때 모바일 메뉴 닫기 */
+        $('.close').click(function(event){
+            event.preventDefault();
+
+            $left_gnb.removeClass('on');
+            
+            // x버튼 누르면 시간차 약간두고 소메뉴 닫히게 하기
+            setTimeout(function(){
+                $depth1_btn.removeClass('on');
+                $depth1.slideUp();
+            },300)
+        });
+        
+        /* depth1의 각메뉴 클릭시 depth2 나오게 하기 */
+        $depth1_btn.click(function(event){
+            event.preventDefault();
+            var $this = $(this);
+            var $this_ul = $this.siblings('ul');
+
+            var check = $this.hasClass('on');
+            if(check){
+                $this.removeClass('on');
+                $this_ul.stop(true,true).slideUp();
+            }else{
+                $depth1_btn.removeClass('on');
+                $depth1.stop().slideUp();
+                $this.addClass('on');
+                $this_ul.stop(true,true).slideDown();
+            }
+        });
+        
+        /* 디바이스 크기 변경시 모바일 메뉴영역 숨기기 */
+        $(window).resize(function(){
+            $left_gnb.removeClass('on');
+        });
+    }
+    
+    start(); // 시작 호출
+}
+</script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="inner">
+                <div class="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+                <ul class="menu">
+                    <li><a href="sub1.html">BEAUTY</a></li>
+                    <li><a href="sub2.html">FASHION</a></li>
+                    <li><a href="sub3.html">FEATURE</a></li>
+                    <li><a href="sub4.html">CELEBRITY</a></li>
+                    <li><a href="sub5.html">WELLNESS</a></li>
+                    <li><a href="sub_bob.html">BEST OF BEAUTY</a>
+                        <ul>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 Winner</a></li>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 Editor's Pick</a></li>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 K-beauty Winners</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">VIDEO</a></li>
+                    <li><a href="sub_event.html">EVENT</a>
+                        <ul>
+                            <li><a href="sub_event.html">Allure Green Campaign</a></li>
+                            <li><a href="sub_event.html">Allure Beauty Fair</a></li>
+                            <li><a href="sub_event.html">Wonderflow Festival</a></li>
+                            <li><a href="sub_event.html">SNS Event</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="side">
+                    <li><img src="img/search.png" alt="검색"></li>
+                    <li>
+                    <div class="m_menu">
+                    <img src="img/m_menu.png" alt="햄버거 메뉴"></div>
+                    
+                    <nav class="left_gnbWrap">
+            <a href="#" class="close"><img src="img/close.png" alt="닫기"></a>
+            <ul class="left_gnb">
+                <li><a href="sub1.html">BEAUTY</a></li>
+                <li><a href="sub2.html">FASHION</a></li>
+                <li><a href="sub3.html">FEATURE</a></li>
+                <li><a href="sub4.html">CELEBRITY</a></li>
+                <li><a href="sub5.html">WELLNESS</a></li>
+                <li><a href="#">BEST OF BEAUTY</a>
+                    <ul>
+                        <li><a href="sub_bob.html">Best of Beauty 2021 Winner</a></li>
+                        <li><a href="sub_bob.html">Best of Beauty 2021 Editor's Pick</a></li>
+                        <li><a href="sub_bob.html">Best of Beauty 2021 K-beauty Winners</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="#">EVENT</a>
+                    <ul>
+                        <li><a href="sub_event.html">Allure Green Campaign</a></li>
+                        <li><a href="sub_event.html">Allure Beauty Fair</a></li>
+                        <li><a href="sub_event.html">Wonderflow Festival</a></li>
+                        <li><a href="sub_event.html">SNS Event</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+                    </li>
+                </ul>
+                </div>
+        </header>
+        
+        <!--sub_event 페이지-->
+        <!--sub_event 페이지-->
+        <!--sub_event 페이지-->
+        <!--sub_event 페이지-->
+        <!--sub_event 페이지-->
+        <article id="sub_event_mainimg">
+            <h1 class="hidden">이벤트 메인이미지</h1>
+            <div class="inner">
+               <h2 class="animate__fadeInUp">ALLURE GREEN CAMPAIGN</h2>
+               <p class="mobile_hidden animate__fadeInUp">환경과 축제는 사실 함께 어울리기 어려운 말입니다. 사실 이것은 소비문화와 떼놓고 이야기할 수 없는 패션 라이프스타일 잡지가 친환경을 이야기할때의 어색함과도 닮았지요.</p>
+               <p class="animate__fadeInUp"><span class="mobile_hidden">그럼에도 불구하고, 좋은 생각과 취지는 알려야 된다는 생각으로, </span>&lt;얼루어&gt;는 살기 좋은 지구를 만들기 위한 에코 라이프스타일을 전파하고, 친환경적인 삶의 가치를 나누기 위해 2011년부터 &lt;얼루어 그린 캠페인&gt;을 진행하고 있습니다.</p>
+            </div>
+        </article>
+        
+        <main id="sub_event_contents">
+            <section class="sub_event_introset">
+               <h1 class="hidden">얼루어 그린 캠페인 소개</h1>
+                <div class="inner">
+                    <div class="intro_top">
+                        <div class="intro_contents">
+                            <div class="green_logo"><img src="img/green_logo.png" alt="그린 얼루어 로고"></div>
+                            <div class="intro_txtset">
+                                <h2>얼루어 그린 캠페인</h2>
+                                <div class="intro_img_m"><img src="img/sub_event_main01.png" alt="소개 이미지"></div>
+                                <p>환경의 소중함을 매일 채감하는 요즘,<br>그린 캠페인은 뷰티&amp;패션 피플, 오디언스가 모여<br>환경에 대한 마음을 나누고 에코 라이프 스타일을<br>권장하는 건강한 환경 문화 축제입니다.<br>&lt;얼루어&gt;와 함께 따듯한 봄날의 그린 파티를 즐겨보세요!</p>
+                            </div>
+                        </div>
+                        <div class="intro_img"><img src="img/sub_event_main01.png" alt="소개 이미지"></div>
+                    </div>
+                    
+                    <ul class="intro_bottom">
+                        <li>
+                            <h4><span>날짜</span></h4>
+                            <p>2021년 4월 22일 (월)<br>오후 2시 - 7시</p>
+                        </li>
+                        
+                        <li>
+                            <h4><span>장소</span></h4>
+                            <p>남산 서울타워 및<br>팔각정 광장 일대</p>
+                        </li>
+                        
+                        <li>
+                            <h4><span>프로그램</span></h4>
+                            <p>에코브랜드 프로모션, 에코 라이프 체험 프로그램, 포토존 이벤트, 필라테스 클래스, 자이언티 미니 콘서트 등</p>
+                            
+                            <div class="class_join">
+                                <p>* 필라테스 클래스는 사전 응모를 통한 당첨자에 한해 진행 됩니다.</p>
+                                <a href="#"><div class="green_btn"><span>클래스 응모하기</span><span class="green_arrow"></span></div></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+           
+           
+           <section class="sub_event_applyset">
+              <h1 class="hidden">그린 캠페인 참여 신청</h1>
+              <div class="sub_event_applyset_bg"></div>
+               <div class="inner">
+                  <div class="apply_right">
+                       <div class="ecokit_img"><img src="img/sub_event_kit.png" alt="에코키트 이미지"></div>
+                       <a href="#"><div class="green_btn">에코키트 구성품 확인<span class="green_arrow"></span></div></a>
+                   </div>
+                   <div class="apply_left">
+                       <h2>그린 캠페인 참여 신청</h2>
+                       <p class="txt1">&lt;얼루어&gt; 그린 캠페인은 누구나 참여할수 있지만 다양한 뷰티/라이프스타일제품으로 구성된 에코키트는 응모 후 당첨된 분들께만 행사 당일 현상에서 드립니다.</p>
+                       
+                       <p class="txt2">신청 기간 : 4월 15일 월요일까지<br>신청 방법 : ‘그린 캠페인 참여 신청’ 버튼을 클릭하여 응모에 필요한 정보 입력<br>당첨자 선정 : 응모자 중 랜덤 선정, 동반 1인과 함께 참여 가능<br>당첨자 발표 : 4월 17일 수요일, 응모 시 남겨주신 연락처로 개별 문자 연락</p>
+                       
+                       <a href="#"><div class="apply_btn">그린 캠페인 참여 신청</div></a>
+                       
+                       <p class="txt3">* 당첨자와 동반 1인 모두에게 뷰티 키트를 드립니다.<br>
+                       * 에코 키트는 1인 1개만 수령 가능하며, 중복 당첨 및 중복 수령이 불가능합니다.<br>
+                       * 에코 키트의 구성품은 내부 사정에 따라 변경될 수 있으며, 랜덤 증정 혹은 선착순으로 제공되는 제품이 있습니다.</p>
+                   </div>
+               </div>
+           </section>
+           
+           <section class="sub_event_campaignset">
+              <h1 class="hidden">그린 인터뷰, 기부 내역</h1>
+               <div class="campaign_top">
+                   <h2>Go Green, 그린 투게더</h2>
+                  <div class="celeb_contents">
+                       <p>배두나, 도연(위키미키), 에릭남, 이영진, 이엘의<br>지구를 구하는 작지만 위대한 노력들.</p>
+                       <ul class="celeb_imgset">
+                           <li>
+                               <a href="#"><div class="celeb_img">
+                                   <div class="overlay"></div>
+                               </div></a>
+                               <p>배두나</p>
+                           </li>
+                           <li>
+                               <a href="#"><div class="celeb_img">
+                                   <div class="overlay"></div>
+                               </div></a>
+                               <p>도연(위키미키)</p>
+                           </li>
+                           <li>
+                               <a href="#"><div class="celeb_img">
+                                   <div class="overlay"></div>
+                               </div></a>
+                               <p>에릭남</p>
+                           </li>
+                           <li>
+                               <a href="#"><div class="celeb_img">
+                                   <div class="overlay"></div>
+                               </div></a>
+                               <p>이영진</p>
+                           </li>
+                           <li>
+                               <a href="#"><div class="celeb_img">
+                                   <div class="overlay"></div>
+                               </div></a>
+                               <p>이엘</p>
+                           </li>
+                       </ul>
+                       <h5>* 이미지를 클릭하면 &lt;얼루어&gt; 4월호에 실린 그린 인터뷰를 확인할 수 있습니다.</h5>
+                   </div>
+               </div>
+               <div class="campaign_bottom">
+                  <h2>그린 캠페인 기부 내역</h2>
+                   <div class="goral_contents">
+                       <div class="goral_img"><img src="img/sub_event_goral.png" alt="산양 이미지"></div>
+                       <div class="goral_text">
+                           <h4>“Save the Goral”</h4>
+                           <p>&lt;얼루어&gt;는 2011년부터 그린 캠페인 수익금 약 1억 5천 5백 만원을 녹색연합의 산양 보호 프로그램에 기부해습니다. 멸종위기 야생동물 1급인 산양을 보호하기 위해 무인 카메라 설치, 야생동물 탐사단 등의 활동에 쓰입니다.</p>
+                       </div>
+                   </div>
+               </div>
+           </section>
+           
+           <section class="sub_event_announceset">
+              <h1 class="hidden">그린 캠페인 공지사항</h1>
+               <div class="inner">
+                   <div class="circle"><p>꼭 읽어<br>주세요!</p></div>
+                   <h2>그린 캠페인 공지사항</h2>
+                   <div class="announce_contentset">
+                       <div class="announce_txtset">
+                           <h3>당첨 및 참여 관련 안내</h3>
+                           <div class="announce_txt">
+                               <p>그린 캠페인 신청자 중 당첨된 분들은 동반 1인과 함께 행사에 참여 가능합니다.</p>
+                               <p>행사 당일 안내 데스크에서 본인 확인 후 에코 키트를 받고 행사에 참여할 수 있습니다.</p>
+                               <p>그린 캠페인 당첨 및 에코 키트 증정은 다른 사람에게 양도할 수 없습니다.</p>
+                               <p>각 브랜드의 이벤트와 샘플링은 선착순으로 진행되어 조기에 마감되거나 제품이 변경될 수 있습니다.</p>
+                               <p>행사장 공간에 따라 안전을 위해 참여 제한 및 대기 시간이 발생할 수 있습니다.</p>
+                           </div>
+                       </div>
+
+                       <div class="announce_txtset">
+                           <h3>에코 키트 제공 관련 안내</h3>
+                           <div class="announce_txt">
+                               <p>에코 키트는 당첨 후, 현장에 참석하는 분께만 제공됩니다.</p>
+                               <p>당첨자와 동반 1인 모두에게 에코 키트를 드립니다.</p>
+                               <p>에코 키트는 1인 1개만 수령 가능하며, 어떤 경우에도 중복 당첨 및 중복 수령이 절대 불가능합니다.</p>
+                               <p>에코 키트는 대리 수령이 불가능합니다.</p>
+                               <p>에코 키트의 구성품은 주최측 및 브랜드사정에 의해 변경될 수 있습니다.</p>
+                               <p>에코 키트의 구성품 중에는 랜덤 증정, 혹은 선착순으로 제공되는 제품이 있으며 이로 인한 교환은 불가능합니다.</p>
+                           </div>
+                       </div>
+
+                       <div class="announce_txtset">
+                           <h3>촬영 관련 안내</h3>
+                           <div class="announce_txt">
+                               <p>행사 당일, 그린 캠페인 홍보를 복적으로 행사장 내 참여자들의 모습이 촬영됩니다.</p>
+                               <p>촬영된 사진 및 영상은 원본 또는 편집된 형태로 &lt;얼루어&gt; 잡지, 웹사이트, SNS 채널에 게재될 수 있습니다.</p>
+                               <p>촬영된 저작물은 촬영 이후 영구적으로 활용됩니다.</p>
+                           </div>
+                       </div>
+
+                       <div class="announce_txtset">
+                           <h3>개인 정보 제공 관련 안내</h3>
+                           <div class="announce_txt">
+                               <p>그린 캠페인 신청 시 입력한 개인 정보는 &lt;얼루어 코리아&gt;의 이벤트 진행 및 본인 확인을 위해서만 사용됩니다.</p>
+                               <p>개인 정보는 참석자 규모 파악 등을 위해 행사 후 약 3개월 간 보관되며, 그 이후 즉시 파기됩니다.</p>
+                               <p>개인 정보 제공에 동의하지 않을 수 있으며, 동의 거부 시 이벤트에 참여할수 없습니다.</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+           
+           <section class="sub_event_partnerset">
+              <h1 class="hidden">협찬사</h1>
+               <div class="inner">
+                   <h2>OUR PARTNERS</h2>
+                   <ul>
+                       <li><img src="img/sub_event_partner-01.png" alt="협찬사"></li>
+                       <li><img src="img/sub_event_partner-02.png" alt="협찬사"></li>
+                       <li><img src="img/sub_event_partner-03.png" alt="협찬사"></li>
+                   </ul>
+               </div>
+           </section>
+        </main>
+        
+        <!--sub_event 페이지 끝-->
+        <!--sub_event 페이지 끝-->
+        <!--sub_event 페이지 끝-->
+        <!--sub_event 페이지 끝-->
+        <!--sub_event 페이지 끝-->
+        
+        <footer>
+            <section class="top_footer">
+                <div class="inner">
+                    <ul class="info">
+                        <li><a href="#">SUBSCRIBE</a></li>
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">광고 및 제휴 문의</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                    </ul>
+                    
+                    <ul class="sns">
+                        <li><a href="#"><img src="img/sns-01.png" alt="sns1"></a></li>
+                        <li><a href="#"><img src="img/sns-02.png" alt="sns2"></a></li>
+                        <li><a href="#"><img src="img/sns-03.png" alt="sns3"></a></li>
+                        <li><a href="#"><img src="img/sns-04.png" alt="sns4"></a></li>
+                        <li><a href="#"><img src="img/sns-05.png" alt="sns5"></a></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="bottom_footer">
+                <div class="inner">
+                    <div class="copyright">
+                        <p>
+                            ALLURE KOREA<br>
+                            WWW.allurekorea.com ©CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED.<br>
+                            allure KOREA IS OPERATED BY DOOSAN MAGAZINE
+                        </p>
+                    </div>
+                    
+                    <div class="f_logo"><a href="index.html"><img src="img/logo_bw.png" alt="footer 로고"></a></div>
+                </div>
+            </section>
+        </footer>
+    </div>
+</body>
+</html>

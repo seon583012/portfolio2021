@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>얼루어 코리아 (Allure Korea)</title>
+    
+    <!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="56x56" href="img/fav-icon.png">
+    
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/flickerplate.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/jquery-v1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+    <script>
+$(document).ready(function(){
+    mobile_menu();
+});
+
+function mobile_menu(){
+    /* 변수 선언 */
+    var $menu = null;
+    var $left_gnb = null; // 영역 전체
+    var $depth1_wrap = null;
+    var $depth1 = null;
+    var $depth1_btn = null;
+    
+    /* 시작 함수 */
+    function start(){
+        init();
+        init_event();
+    }
+    /* 변수 초기화 함수 */
+    function init(){
+        $menu = $('.m_menu');
+        $left_gnb = $('.left_gnbWrap'); // 영역 전체
+        $depth1_wrap = $('.left_gnb>li');
+        $depth1 = $depth1_wrap.children('ul');
+        $depth1_btn = $depth1_wrap.children('a');
+    }
+    /* 이벤트 함수 */
+    function init_event(){
+        
+        /* 모바일 메뉴 버튼 클릭했을때 모바일 메뉴영역 나오게 하기 */
+        $menu.click(function(event){
+            event.preventDefault();
+            $left_gnb.addClass('on');
+        });
+        
+        /* x버튼 눌렀을때 모바일 메뉴 닫기 */
+        $('.close').click(function(event){
+            event.preventDefault();
+
+            $left_gnb.removeClass('on');
+            
+            // x버튼 누르면 시간차 약간두고 소메뉴 닫히게 하기
+            setTimeout(function(){
+                $depth1_btn.removeClass('on');
+                $depth1.slideUp();
+            },300)
+        });
+        
+        /* depth1의 각메뉴 클릭시 depth2 나오게 하기 */
+        $depth1_btn.click(function(event){
+            event.preventDefault();
+            var $this = $(this);
+            var $this_ul = $this.siblings('ul');
+
+            var check = $this.hasClass('on');
+            if(check){
+                $this.removeClass('on');
+                $this_ul.stop(true,true).slideUp();
+            }else{
+                $depth1_btn.removeClass('on');
+                $depth1.stop().slideUp();
+                $this.addClass('on');
+                $this_ul.stop(true,true).slideDown();
+            }
+        });
+        
+        /* 디바이스 크기 변경시 모바일 메뉴영역 숨기기 */
+        $(window).resize(function(){
+            $left_gnb.removeClass('on');
+        });
+    }
+    
+    start(); // 시작 호출
+}
+</script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="inner">
+                <div class="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+                <ul class="menu">
+                    <li><a href="sub1.html">BEAUTY</a></li>
+                    <li><a href="sub2.html">FASHION</a></li>
+                    <li><a href="sub3.html">FEATURE</a></li>
+                    <li><a href="sub4.html">CELEBRITY</a></li>
+                    <li><a href="sub5.html">WELLNESS</a></li>
+                    <li><a href="sub_bob.html">BEST OF BEAUTY</a>
+                        <ul>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 Winner</a></li>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 Editor's Pick</a></li>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 K-beauty Winners</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">VIDEO</a></li>
+                    <li><a href="sub_event.html">EVENT</a>
+                        <ul>
+                            <li><a href="sub_event.html">Allure Green Campaign</a></li>
+                            <li><a href="sub_event.html">Allure Beauty Fair</a></li>
+                            <li><a href="sub_event.html">Wonderflow Festival</a></li>
+                            <li><a href="sub_event.html">SNS Event</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="side">
+                    <li><img src="img/search.png" alt="검색"></li>
+                    <li>
+                    <div class="m_menu">
+                    <img src="img/m_menu.png" alt="햄버거 메뉴"></div>
+                    
+                    <nav class="left_gnbWrap">
+            <a href="#" class="close"><img src="img/close.png" alt="닫기"></a>
+            <ul class="left_gnb">
+                <li><a href="sub1.html">BEAUTY</a></li>
+                <li><a href="sub2.html">FASHION</a></li>
+                <li><a href="sub3.html">FEATURE</a></li>
+                <li><a href="sub4.html">CELEBRITY</a></li>
+                <li><a href="sub5.html">WELLNESS</a></li>
+                <li><a href="#">BEST OF BEAUTY</a>
+                    <ul>
+                        <li><a href="sub_bob.html">Best of Beauty 2021 Winner</a></li>
+                        <li><a href="sub_bob.html">Best of Beauty 2021 Editor's Pick</a></li>
+                        <li><a href="sub_bob.html">Best of Beauty 2021 K-beauty Winners</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="#">EVENT</a>
+                    <ul>
+                        <li><a href="sub_event.html">Allure Green Campaign</a></li>
+                        <li><a href="sub_event.html">Allure Beauty Fair</a></li>
+                        <li><a href="sub_event.html">Wonderflow Festival</a></li>
+                        <li><a href="sub_event.html">SNS Event</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+                    </li>
+                </ul>
+                </div>
+        </header>
+        
+        <!--sub페이지-->
+        <!--sub페이지-->
+        <!--sub페이지-->
+        <!--sub페이지-->
+        <!--sub페이지-->
+        
+        <!--fashion-->
+        
+        <main id="sub5_contents">
+           <h1 class="hidden">WELLNESS 페이지</h1>
+            <div class="inner">
+                <h2>WELLNESS</h2>
+                
+                <section class="sub5_box1">
+                    <h1 class="hidden">상단 영역</h1>
+                    <div class="box1_left">
+                        <div class="sub5_gradient">
+                            <div class="sub_textbox">
+                            <h3 class="white_font">제주 서쪽에서 가장 아름다운 노을과 함께 불면증 극복하기</h3>
+                            <p class="white_font">‘비만’에 버금가는 고민이 바로 ‘불면증’이라고요?</p>
+                            <a href="#"><div class="sub_read_btn"><span>READ IT</span><span class="arrow"></span></div></a>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="box1_right">
+                        <div class="sublistset">
+                            <div class="box1_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>6가지 채식 집밥 레시피</p></a>
+                            </div>
+
+                            <div class="box1_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>서재에 오래된 책이 쌓이면, 포름알데히드 중독을 일으킨다고?
+</p></a>
+                            </div>
+
+                            <div class="box1_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>지금 궁금한 마스크 스트랩</p></a>
+                            </div>
+
+                            <div class="box1_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>안전 지킴이 추천 앱</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="sub5_box2">
+                    <h1 class="hidden">하단 영역</h1>
+                    <div class="box2_right">
+                        <div class="sub5_gradient">
+                            <div class="sub_textbox">
+                            <h3>코로나 시대의 텀블러 위생</h3>
+                            <p>요즘 같은 개인위생이 중요한 코로나 시대에는 약간만 제품이 청결하지 못하거나 건강에 좋지 않다고 생각되면 교체를 하고 싶어지죠.</p>
+                            <a href="#"><div class="sub_read_btn"><span>READ IT</span><span class="arrow"></span></div></a>
+                        </div>
+                        </div>
+                    </div>
+                       
+                    <div class="box2_left">
+                        <div class="sublistset">
+                            <div class="box2_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>운칠기삼, 돈보다 운을 벌어라!</p></a>
+                            </div>
+
+                            <div class="box2_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>오늘도 피곤한 당신에게</p></a>
+                            </div>
+
+                            <div class="box2_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>당신은 안정형? 불안형? 회피형?</p></a>
+                            </div>
+
+                            <div class="box2_list">
+                                <a href="#"><div class="listimg">
+                                    <div class="overlay"></div>
+                                </div></a>
+                                <h6>WELLNESS</h6>
+                                <a href="#"><p>빈 속에 먹으면 안 되는 의외의 음식들</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!--sub페이지 끝-->
+        <!--sub페이지 끝-->
+        <!--sub페이지 끝-->
+        <!--sub페이지 끝-->
+        <!--sub페이지 끝-->
+        
+        <footer>
+            <section class="top_footer">
+                <div class="inner">
+                    <ul class="info">
+                        <li><a href="#">SUBSCRIBE</a></li>
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">광고 및 제휴 문의</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                    </ul>
+                    
+                    <ul class="sns">
+                        <li><a href="#"><img src="img/sns-01.png" alt="sns1"></a></li>
+                        <li><a href="#"><img src="img/sns-02.png" alt="sns2"></a></li>
+                        <li><a href="#"><img src="img/sns-03.png" alt="sns3"></a></li>
+                        <li><a href="#"><img src="img/sns-04.png" alt="sns4"></a></li>
+                        <li><a href="#"><img src="img/sns-05.png" alt="sns5"></a></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="bottom_footer">
+                <div class="inner">
+                    <div class="copyright">
+                        <p>
+                            ALLURE KOREA<br>
+                            WWW.allurekorea.com ©CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED.<br>
+                            allure KOREA IS OPERATED BY DOOSAN MAGAZINE
+                        </p>
+                    </div>
+                    
+                    <div class="f_logo"><a href="index.html"><img src="img/logo_bw.png" alt="footer 로고"></a></div>
+                </div>
+            </section>
+        </footer>
+    </div>
+</body>
+</html>

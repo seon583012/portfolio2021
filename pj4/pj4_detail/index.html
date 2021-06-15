@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>얼루어 코리아 (Allure Korea)</title>
+    
+    <!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="56x56" href="img/fav-icon.png">
+    
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/flickerplate.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/jquery-v1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+    <script>
+$(document).ready(function(){
+    mobile_menu();
+});
+
+function mobile_menu(){
+    /* 변수 선언 */
+    var $menu = null;
+    var $left_gnb = null; // 영역 전체
+    var $depth1_wrap = null;
+    var $depth1 = null;
+    var $depth1_btn = null;
+    
+    /* 시작 함수 */
+    function start(){
+        init();
+        init_event();
+    }
+    /* 변수 초기화 함수 */
+    function init(){
+        $menu = $('.m_menu');
+        $left_gnb = $('.left_gnbWrap'); // 영역 전체
+        $depth1_wrap = $('.left_gnb>li');
+        $depth1 = $depth1_wrap.children('ul');
+        $depth1_btn = $depth1_wrap.children('a');
+    }
+    /* 이벤트 함수 */
+    function init_event(){
+        
+        /* 모바일 메뉴 버튼 클릭했을때 모바일 메뉴영역 나오게 하기 */
+        $menu.click(function(event){
+            event.preventDefault();
+            $left_gnb.addClass('on');
+        });
+        
+        /* x버튼 눌렀을때 모바일 메뉴 닫기 */
+        $('.close').click(function(event){
+            event.preventDefault();
+
+            $left_gnb.removeClass('on');
+            
+            // x버튼 누르면 시간차 약간두고 소메뉴 닫히게 하기
+            setTimeout(function(){
+                $depth1_btn.removeClass('on');
+                $depth1.slideUp();
+            },300)
+        });
+        
+        /* depth1의 각메뉴 클릭시 depth2 나오게 하기 */
+        $depth1_btn.click(function(event){
+            event.preventDefault();
+            var $this = $(this);
+            var $this_ul = $this.siblings('ul');
+
+            var check = $this.hasClass('on');
+            if(check){
+                $this.removeClass('on');
+                $this_ul.stop(true,true).slideUp();
+            }else{
+                $depth1_btn.removeClass('on');
+                $depth1.stop().slideUp();
+                $this.addClass('on');
+                $this_ul.stop(true,true).slideDown();
+            }
+        });
+        
+        /* 디바이스 크기 변경시 모바일 메뉴영역 숨기기 */
+        $(window).resize(function(){
+            $left_gnb.removeClass('on');
+        });
+    }
+    
+    start(); // 시작 호출
+}
+</script>
+
+<script>
+        $(document).ready(function() {
+
+            $('.flicker-example').flicker();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="inner">
+                <div class="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+                <ul class="menu">
+                    <li><a href="sub1.html">BEAUTY</a></li>
+                    <li><a href="sub2.html">FASHION</a></li>
+                    <li><a href="sub3.html">FEATURE</a></li>
+                    <li><a href="sub4.html">CELEBRITY</a></li>
+                    <li><a href="sub5.html">WELLNESS</a></li>
+                    <li><a href="sub_bob.html">BEST OF BEAUTY</a>
+                        <ul>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 Winner</a></li>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 Editor's Pick</a></li>
+                            <li><a href="sub_bob.html">Best of Beauty 2021 K-beauty Winners</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">VIDEO</a></li>
+                    <li><a href="sub_event.html">EVENT</a>
+                        <ul>
+                            <li><a href="sub_event.html">Allure Green Campaign</a></li>
+                            <li><a href="sub_event.html">Allure Beauty Fair</a></li>
+                            <li><a href="sub_event.html">Wonderflow Festival</a></li>
+                            <li><a href="sub_event.html">SNS Event</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="side">
+                    <li><img src="img/search.png" alt="검색"></li>
+                    <li>
+                    <div class="m_menu">
+                    <img src="img/m_menu.png" alt="햄버거 메뉴"></div>
+                    
+                    <nav class="left_gnbWrap">
+            <a href="#" class="close"><img src="img/close.png" alt="닫기"></a>
+            <ul class="left_gnb">
+                <li><a href="sub1.html">BEAUTY</a></li>
+                <li><a href="sub2.html">FASHION</a></li>
+                <li><a href="sub3.html">FEATURE</a></li>
+                <li><a href="sub4.html">CELEBRITY</a></li>
+                <li><a href="sub5.html">WELLNESS</a></li>
+                <li><a href="#">BEST OF BEAUTY</a>
+                    <ul>
+                        <li><a href="#">Best of Beauty 2021 Winner</a></li>
+                        <li><a href="#">Best of Beauty 2021 Editor's Pick</a></li>
+                        <li><a href="#">Best of Beauty 2021 K-beauty Winners</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="#">EVENT</a>
+                    <ul>
+                        <li><a href="sub_event.html">Allure Green Campaign</a></li>
+                        <li><a href="sub_event.html">Allure Beauty Fair</a></li>
+                        <li><a href="sub_event.html">Wonderflow Festival</a></li>
+                        <li><a href="sub_event.html">SNS Event</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+                    </li>
+                </ul>
+                </div>
+        </header>
+        
+        <article id="mainimg" class="animate__fadeIn flicker-example" data-block-text="false">
+            <ul>
+                <li>
+                    <div class="main_inner">
+                       <div class="mainimg_contents">
+                           <h6>CELEBRITY</h6>
+                           <h1>NEON DEMONS,<br>더 보이즈 주연과 현재</h1>
+                           <p>소년이 다 자랐다고 더는 소년이 아닌 게 될까. ‘더보이즈’의 주연과 현재는 영원한 소년이면서도 소년으로 착각하라는 듯 내내 그런 얼굴을 하고 있었고 &lt;얼루어&gt;는 그들의 손톱까지 색으로 채웠다.</p>
+                           <a href="#"><div class="read_btn"><p><span>READ IT</span><span class="arrow"></span></p></div></a>
+                       </div>
+                       <div class="mainimg_img">
+                       <div class="main_gradient"></div>
+                       <!--bg-->
+                       </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="main_inner">
+                       <div class="mainimg_contents">
+                           <h6>FEATURE</h6>
+                           <h1>나는 비건 레시피를<br>만든다</h1>
+                           <p>고기가 기본이 아닌 세계를 꿈꾼다. 결코 녹록지 않은 비건의 세계에서 지금, 비건을 만드는 사람들의 이야기를 들어봤다.</p>
+                           <a href="#"><div class="read_btn"><p><span>READ IT</span><span class="arrow"></span></p></div></a>
+                       </div>
+                       <div class="mainimg_img">
+                       <div class="main_gradient"></div>
+                       <!--bg-->
+                       </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="main_inner">
+                       <div class="mainimg_contents">
+                           <h6>FASHION</h6>
+                           <h1>FULL OF HOPE</h1>
+                           <p>희망의 싹은 결국 자연에서 길러진다. 큼지막한 꽃, 활기찬 컬러, 가로와 세로로 마구 뻗은 강렬한 선의 집합과 함께.</p>
+                           <a href="#"><div class="read_btn"><p><span>READ IT</span><span class="arrow"></span></p></div></a>
+                       </div>
+                       <div class="mainimg_img">
+                       <div class="main_gradient"></div>
+                       <!--bg-->
+                       </div>
+                    </div>
+                </li>
+            </ul>
+        </article>
+        
+        <main id="contents">
+            <section class="mainset">
+                <h1 class="hidden">메인콘텐츠</h1>
+                <div class="main_color"></div>
+                <div class="inner">
+                    <h2>ALLURE MAGAZINE</h2>
+                    <div class="main_contents">
+                        <div class="list">
+                            <a href="#">
+                                <div class="main_listimg">
+                                    <div class="overlay"></div>
+                                </div>
+                            </a>
+                            <h6>BEAUTY</h6>
+                            <a href="#"><div class="textset">
+                                <h3>클린 뷰티의 기준</h3>
+                                <p>&lt;얼루어&gt;가 말하는 ‘클린 뷰티’의 기준.</p>
+                            </div></a>
+                        </div>
+                        
+                        <div class="list">
+                            <a href="#"><div class="main_listimg">
+                                <div class="overlay"></div>
+                            </div></a>
+                            <h6>FASHION</h6>
+                            <a href="#"><div class="textset">
+                                <h3>예쁜데 편안하기까지 한 운동복 스타일링</h3>
+                                <p>셀럽들의 애슬레저 룩</p>
+                            </div></a>
+                        </div>
+                        
+                        <div class="list">
+                            <a href="#"><div class="main_listimg">
+                                <div class="overlay"></div>
+                            </div></a>
+                            <h6>CELEBRITY</h6>
+                            <a href="#"><div class="textset">
+                                <h3>SHINE ON GREEN, 샤이니</h3>
+                                <p>샤이니가 ‘Don’t Call Me’으로 다시 무대에
+서며 “SHINee’s Back”을 외칠 때 전율마저 흘렀다.</p>
+                            </div></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="newset">
+                <h1 class="hidden">NEWEST POSTS</h1>
+                <div class="inner">
+                    <h2>NEWEST POSTS</h2>
+                    <div class="new_contents">
+                        <div class="list">
+                            <a href="#"><div class="new_listimg">
+                                <div class="overlay"></div>
+                            </div></a>
+                            <h6>FEATURE</h6>
+                            <div class="new_textspace">
+                                <a href="#"><p>만우절, 이런 농담은 피해주세요</p></a>
+                            </div>
+                        </div>
+                        
+                        <div class="list">
+                            <a href="#"><div class="new_listimg">
+                                <div class="overlay"></div>
+                            </div></a>
+                            <h6>WELLNESS</h6>
+                            <div class="new_textspace">
+                                <a href="#"><p>제주 서쪽에서 가장 아름다운 노을과 함께 ‘불면증’ 극복하기</p></a>
+                            </div>
+                        </div>
+                        
+                        <div class="list">
+                            <a href="#"><div class="new_listimg">
+                                <div class="overlay"></div>
+                            </div></a>
+                            <h6>CELEBRITY</h6>
+                            <div class="new_textspace">
+                                <a href="#"><p>LOVE AT FIRST SIGHT, NCT 성찬</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#"><div class="btn"><p><span>SEE MORE POSTS</span><span class="arrow2">
+                    </span></p></div></a>
+                </div>
+            </section>
+            
+            <section class="videoset">
+                <h1 class="hidden">ALLURE VIDEO SERIES</h1>
+                <div class="inner">
+                    <div class="video_titleset">
+                        <h2>ALLURE<br>VIDEO<br>SERIES</h2>
+                        <a href="#"><div class="btn"><p><span>SEE MORE VIDEOS</span><span class="arrow2"></span></p></div></a>
+                    </div>
+                    
+                    <div class="list_wide">
+                        <a href="#"><div class="video_listimg">
+                            <div class="overlay"></div>
+                        </div></a>
+                        <h6>#Green Allure &nbsp;#11PM</h6>
+                        <a href="#"><p><span>오늘도 수고했어요. 이세영의 11PM</span></p></a>
+                    </div>
+                       
+                    <div class="list_high">
+                        <a href="#"><div class="video_listimg">
+                            <div class="overlay"></div>
+                        </div></a>
+                        <h6>#에스크 얼루어</h6>
+                        <a href="#"><p><span>카톡 안읽씹... 이해 된다고요..? 뉴이스트 렌, 인터뷰 하다 그라데이션으로 분노한 이유는?</span></p></a>
+                    </div>
+                       
+                    <div class="list_high">
+                        <a href="#"><div class="video_listimg">
+                            <div class="overlay"></div>
+                        </div></a>
+                        <h6>#스타뷰터뷰</h6>
+                        <a href="#"><p><span>On the ground 뮤비 속 로제 최애 메이크업과 비하인드 스토리</span></p></a>
+                    </div>
+                    
+                    <div class="list_wide">
+                        <a href="#"><div class="video_listimg">
+                            <div class="overlay"></div>
+                        </div></a>
+                        <h6>#Green Allure &nbsp;#소리도 없이</h6>
+                        <a href="#"><p><span>따뜻한 봄, 제주도로 떠나고 싶나요?</span></p></a>
+                    </div>  
+                </div>
+            </section>
+            
+            <section class="popularset">
+               <h1 class="hidden">MOST POPULAR</h1>
+                <div class="inner">
+                    <h2>MOST POPULAR</h2>
+                    <div class="popular_contents">
+                        <div class="popular_list">
+                            <a href="#"><div class="popular_listimg"><img src="img/popular-01.jpg" alt="popular1"></div></a>
+                            <a href="#"><div class="popular_text">
+                                <p>SHINE ON GREEN,샤이니</p>
+                            </div></a>
+                        </div>
+                        
+                        <div class="popular_list">
+                            <a href="#"><div class="popular_listimg"><img src="img/popular-02.jpg" alt="popular2"></div></a>
+                            <a href="#"><div class="popular_text">
+                                <p>지성이면 베로, 윤지성</p>
+                            </div></a>
+                        </div>
+                        
+                        <div class="popular_list">
+                            <a href="#"><div class="popular_listimg"><img src="img/popular-03.jpg" alt="popular3"></div></a>
+                            <a href="#"><div class="popular_text">
+                                <p>4월에 놓치면 후회할 전시들</p>
+                            </div></a>
+                        </div>
+                        
+                        <div class="popular_list">
+                            <a href="#"><div class="popular_listimg"><img src="img/popular-04.jpg" alt="popular4"></div></a>
+                            <a href="#"><div class="popular_text">
+                                <p>홈카페를 위한 다양한 도구들</p>
+                            </div></a>
+                        </div>
+                        
+                        <div class="popular_list">
+                            <a href="#"><div class="popular_listimg"><img src="img/popular-05.jpg" alt="popular5"></div></a>
+                            <a href="#"><div class="popular_text">
+                                <p>우리는 떡볶이의 민족</p>
+                            </div></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <section class="top_footer">
+                <div class="inner">
+                    <ul class="info">
+                        <li><a href="#">SUBSCRIBE</a></li>
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">광고 및 제휴 문의</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                    </ul>
+                    
+                    <ul class="sns">
+                        <li><a href="#"><img src="img/sns-01.png" alt="sns1"></a></li>
+                        <li><a href="#"><img src="img/sns-02.png" alt="sns2"></a></li>
+                        <li><a href="#"><img src="img/sns-03.png" alt="sns3"></a></li>
+                        <li><a href="#"><img src="img/sns-04.png" alt="sns4"></a></li>
+                        <li><a href="#"><img src="img/sns-05.png" alt="sns5"></a></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="bottom_footer">
+                <div class="inner">
+                    <div class="copyright">
+                        <p>
+                            ALLURE KOREA<br>
+                            WWW.allurekorea.com ©CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED.<br>
+                            allure KOREA IS OPERATED BY DOOSAN MAGAZINE
+                        </p>
+                    </div>
+                    
+                    <div class="f_logo"><a href="index.html"><img src="img/logo_bw.png" alt="footer 로고"></a></div>
+                </div>
+            </section>
+        </footer>
+    </div>
+    
+    <!-- =============================================
+				Loading Transition
+			============================================== -->
+			<div id="loader-wrapper">
+				<div id="preloader_1">
+	                <span></span>
+	                <span></span>
+	                <span></span>
+	                <span></span>
+	                <span></span>
+	            </div>
+			</div>
+    
+    
+    
+    
+    <!-- Js File_________________________________ -->
+
+		<!-- j Query -->
+		<script type="text/javascript" src="../../vendor/jquery.2.2.3.min.js"></script>
+
+		<!-- Theme js -->
+		<script type="text/javascript" src="../../js/theme.js"></script>
+</body>
+</html>
