@@ -51,6 +51,27 @@ function scrollToTop () {
   }
 }
 
+// Scroll to top
+function scrollToTop () {
+  if ($('.popup_container .scroll-top').length) {
+
+    //Check to see if the window is top if not then display button
+    $('.popup_space').on('scroll', function (){
+      if ($(this).scrollTop() > 200) {
+        $('.popup_container .scroll-top').fadeIn();
+      } else {
+        $('.popup_container .scroll-top').fadeOut();
+      }
+    });
+    
+    //Click event to scroll to top
+    $('.popup_container .scroll-top').on('click', function() {
+      $('.popup_space').animate({scrollTop : 0},1500);
+      return false;
+    });
+  }
+}
+
 
 // Theme-banner Video slider 
 function BannerVideoSlider () {
