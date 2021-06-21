@@ -649,6 +649,23 @@ animation-delay: .8s;
     color: #e74506;
 }
 
+
+#project-section .project-gallery .single-img .opacity .pop_btn li {
+  display: inline-block;
+    border: 1px solid #fff;
+    width: 80px; height: 35px; line-height: 35px;
+  color: #fff;
+  margin: 30px 10px 0;
+  transition: all 0.5s;
+}
+
+#project-section .project-gallery .single-img .opacity .pop_btn li:hover {
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #e74506;
+    cursor: pointer;
+}
+
 #project-section .project-gallery .single-img .opacity .border-shape>div {
   display: table;
   width: 100%;
