@@ -46,13 +46,15 @@ html,
 
 .popup_container.v1>.popup_space { overflow-y: hidden; }
 .popup_container.v1>.popup_space>img { height: 100%; width: revert; }
-.popup_container.v1 .textset .color.no1 { background: #E7AA69; }
-.popup_container.v1 .textset .color.no2 { background: #f57d5a; }
-.popup_container.v1 .textset .color.no3 { background: #fef1e9; }
-.popup_container.v1 .textset .color.no4 { background: #916f56; }
-.popup_container.v1 .textset .color.no5 { background: #b8c9d9; }
-.popup_container.v1 .textset .color.no6 { background: #3d3d4c; }
-.popup_container.v1 .textset .color.no7 { background: #31686d; }
+.popup_container.v1 .textset .color.no1 { background: #26b7d2; }
+.popup_container.v1 .textset .color.no2 { background: #acede7; }
+.popup_container.v1 .textset .color.no3 { background: #c2f3ef; }
+.popup_container.v1 .textset .color.no4 { background: #ffad26; }
+.popup_container.v1 .textset .color.no5 { background: #00bf8f; }
+.popup_container.v1 .textset .color.no6 { background: #4a689a; }
+.popup_container.v1 .textset .color.no7 { background: #0392da; }
+.popup_container.v1 .textset .color.no8 { background: #ff645f; }
+
 
 
 .popup_container.v2 .textset .color.no1 { background: #E7AA69; }
