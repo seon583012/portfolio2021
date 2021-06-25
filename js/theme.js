@@ -52,8 +52,6 @@ function scrollToTop () {
 }
 
 
-
-
 // Theme-banner Video slider 
 function BannerVideoSlider () {
   var banner = $("#main-banner-slider.video-slider");
@@ -304,8 +302,7 @@ function subMenuExpend () {
 jQuery(document).on('ready', function() {
 	(function ($) {
 	   removePlaceholder ();
-     scrollToTop();
-     PopscrollToTop();
+     scrollToTop ();
      BannerVideoSlider ();
      onePageFixedNav();
      mixitupGallery ();
