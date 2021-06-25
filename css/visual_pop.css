@@ -64,6 +64,13 @@ html,
 .popup_container.v2 .textset .color.no7 { background: #31686d; }
 
 
+.popup_container.v3 .textset .color.no1 { background: #feee75; }
+.popup_container.v3 .textset .color.no2 { background: #fffceb; }
+.popup_container.v3 .textset .color.no3 { background: #e2f3ed; }
+.popup_container.v3 .textset .color.no4 { background: #41c3b7; }
+.popup_container.v3 .textset .color.no5 { background: #7d355a; }
+.popup_container.v3 .textset .color.no6 { background: #333333; }
+
 .popup_space h3 { font-size: 2.0rem; text-align: left; color: #292929; }
 .popup_space h6 { font-size: 1.6rem; font-weight: 400; text-align: left; margin-top: 20px; line-height: 150%; } 
 
