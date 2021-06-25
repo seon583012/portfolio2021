@@ -35,7 +35,7 @@ html,
 .popup_close { position: absolute; width: 30px; height: 30px; right: 20px; top: 20px; z-index: 999999; }
 .popup_close:hover { cursor: pointer; }
 
-.popup_container .scroll-top { display: none; bottom: 8%; right: 10%; }
+.scroll-top.popup { display: none; bottom: 8%; right: 10%; }
 
 .textset { width: 35%; position: absolute; top: 100px; right: 3%; }
 .textset .colorset { width: 90%; margin-top: 50px; }

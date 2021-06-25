@@ -32,20 +32,40 @@ function removePlaceholder () {
 
 // Scroll to top
 function scrollToTop () {
-  if ($('.scroll-top').length) {
+  if ($('.scroll-top.web').length) {
 
     //Check to see if the window is top if not then display button
     $(window).on('scroll', function (){
       if ($(this).scrollTop() > 200) {
-        $('.scroll-top').fadeIn();
+        $('.scroll-top.web').fadeIn();
       } else {
-        $('.scroll-top').fadeOut();
+        $('.scroll-top.web').fadeOut();
       }
     });
     
     //Click event to scroll to top
-    $('.scroll-top').on('click', function() {
+    $('.scroll-top.web').on('click', function() {
       $('html, body').animate({scrollTop : 0},1500);
+      return false;
+    });
+  }
+}
+
+function popscrollToTop () {
+  if ($('.scroll-top.popup').length) {
+
+    //Check to see if the window is top if not then display button
+    $('.popup_space').on('scroll', function (){
+      if ($(this).scrollTop() > 200) {
+        $('.scroll-top.popup').fadeIn();
+      } else {
+        $('.scroll-top.popup').fadeOut();
+      }
+    });
+    
+    //Click event to scroll to top
+    $('.scroll-top.popup').on('click', function() {
+      $('.popup_space').animate({scrollTop : 0},1500);
       return false;
     });
   }
@@ -303,6 +323,7 @@ jQuery(document).on('ready', function() {
 	(function ($) {
 	   removePlaceholder ();
      scrollToTop ();
+     popscrollToTop ();
      BannerVideoSlider ();
      onePageFixedNav();
      mixitupGallery ();
