@@ -52,7 +52,7 @@ function scrollToTop () {
 }
 
 // Scroll to top
-function scrollToTop () {
+function PopscrollToTop () {
   if ($('.popup_container .scroll-top').length) {
 
     //Check to see if the window is top if not then display button
@@ -323,7 +323,8 @@ function subMenuExpend () {
 jQuery(document).on('ready', function() {
 	(function ($) {
 	   removePlaceholder ();
-     scrollToTop ();
+     scrollToTop();
+     PopscrollToTop();
      BannerVideoSlider ();
      onePageFixedNav();
      mixitupGallery ();
