@@ -153,7 +153,7 @@
 										data-splitin="none" 
 										data-splitout="none" 
 										data-responsive_offset="on">
-										<a href="#skill-section" class="project-button hvr-bounce-to-right">more</a>
+										<a href="#" class="project-button">more</a>
 									</div>
 								
 								</li>
@@ -536,6 +536,16 @@
 		
 		<script>
          $(function(){
+             
+             $(".banner .project-button").mouseover(function(){
+                 
+                 $(this).css('background','#e74506');                 
+             });
+             
+             $(".banner .project-button").mouseleave(function(){
+                 
+                 $(this).css('background','none');                 
+             });
              
              $(".banner .project-button").click(function(){
                  
